@@ -1,0 +1,31 @@
+{
+    "name": "hirossyi73/url-shorter",
+    "description": "Encode and decode url shorter.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hiroshi Sato",
+            "email": "contact@hirossyi.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hirossyi73\\UrlShorter\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hirossyi73\\UrlShorter\\UrlShorterServiceProvider"
+            ],
+            "aliases": {
+                "UrlShorter": "Hirossyi73\\UrlShorter\\Facades\\UrlShorterFacade"
+            }
+        }
+    }
+}
