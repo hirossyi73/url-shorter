@@ -3,6 +3,8 @@
 return [
     'bind_root' => env('URL_SHORTER_BIND_ROOT', true),
 
+    'use_preview' => env('URL_SHORTER_USE_PREVIEW', false),
+
     'auth' => [
         'use' => env('URL_SHORTER_AUTH_USE', false),
 
