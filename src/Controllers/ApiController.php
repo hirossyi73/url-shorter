@@ -11,8 +11,8 @@ class ApiController extends BaseController
 {
     public function get(Request $request)
     {
-        $genelate_url = $request->get('genelate_url');
-        $shorter = Shorter::findByGenerateUrl($key);
+        $generate_url = $request->get('generate_url');
+        $shorter = Shorter::findByGenerateUrl($generate_url);
         if (empty($shorter)) {
             return response()->json(['error' => trans('url_shorter::url_shorter.errors.not_found')], 400);
         }
