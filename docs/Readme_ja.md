@@ -24,8 +24,17 @@
 
 - コンソールを起動し、インストールを行いたいフォルダに遷移します。
 
-- laravelをインストールします。
+- laravelをインストールします。  
+
+```
 composer create-project "laravel/laravel" .
+```
+
+- Url Shorterをインストールします。
+
+```
+composer require hirossyi73/url-shorter
+```
 
 - ".env"ファイルを開き、データベース情報などを入力します。
 

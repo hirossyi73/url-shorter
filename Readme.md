@@ -24,8 +24,17 @@ This is a library that generates and restores shortened URLs.
 
 - Start the console and move to the folder you want to install.
 
-- Install laravel.  
+- Install laravel.
+
+```
 composer create-project "laravel/laravel" .
+```
+
+- Install Url Shorter.
+
+```
+composer require hirossyi73/url-shorter
+```
 
 - Open ".env" file, input database info.
 
