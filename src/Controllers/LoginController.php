@@ -4,8 +4,6 @@ namespace Hirossyi73\UrlShorter\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Hirossyi73\UrlShorter\Model\Shorter;
-
 
 class LoginController extends BaseController
 {

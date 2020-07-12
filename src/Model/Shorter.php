@@ -19,7 +19,7 @@ class Shorter extends Model
         return \UrlShorter::shorter_generate_url($this->key);
     }
 
-    public function findByGenerateUrl($genelate_url){
+    public static function findByGenerateUrl($genelate_url){
         // get key
         $base_uri = \UrlShorter::shorter_generate_url();
         $key = trim($genelate_url, $base_uri);

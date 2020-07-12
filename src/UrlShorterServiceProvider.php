@@ -67,6 +67,7 @@ class UrlShorterServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'url_shorter');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'url_shorter');
 
+        $this->publishes([__DIR__.'/../config' => config_path()]);
         $this->publishes([__DIR__.'/../public' => public_path('url-shorter')], 'public');
 
         
