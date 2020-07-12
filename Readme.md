@@ -1,155 +1,184 @@
 # Url Shorter
-短縮URLを生成・復元するライブラリです。  
+This is a library that generates and restores shortened URLs.
 
-## 要求
+[日本語版ReadMe](docs/Readme_ja.md)
+
+## Requirement
 - PHP >= 7.0.0
 - Laravel >= 5.5.0
 
-## 機能
-- 短縮URLを生成
-- 短縮URLを復元
-- 画面から短縮URLを生成(オプションでON/OFF切り替え可能)
-- APIで短縮URLを生成(オプションでON/OFF切り替え可能)
-- APIで短縮URLを復元(オプションでON/OFF切り替え可能)
-- 画面・APIで短縮する場合に、パスワード認証を求める機能(オプションでON/OFF切り替え可能)
-- 短縮URLのプレビュー機能(オプションでON/OFF切り替え可能)
-- 画面・APIのエンドポイントの変更機能
-- 短縮URLのランダム文字数の変更
-- 短縮URLで使用する文字種類の変更
+## Functions
+- Generate shortened URL
+- Restore shortened URL
+- Generate short URL from screen(Switchable ON/OFF as an option)
+- Generate short URL with API(Switchable ON/OFF as an option)
+- Restore short URL with API(Switchable ON/OFF as an option)
+- Function that requires password authentication when shortening with screen/API(Switchable ON/OFF as an option)
+- Short URL preview function(Switchable ON/OFF as an option)
+- Screen/API endpoint change function
+- Change the number of random characters in shortened URL
+- Change the character type used in the shortened URL
 
 
-## クイックスタート
+## Quick Start
 
-- コンソールを起動し、インストールを行いたいフォルダに遷移します。
+- Start the console and move to the folder you want to install.
 
-- laravelをインストールします。
+- Install laravel.  
 composer create-project "laravel/laravel" .
 
-- ".env"ファイルを開き、データベース情報などを入力します。
+- Open ".env" file, input database info.
 
 ```
 DB_CONNECTION=mysql
-DB_HOST=(ホスト名)
-DB_PORT=(ポート番号)
-DB_DATABASE=(データベース名)
-DB_USERNAME=(ユーザー名)
-DB_PASSWORD=(パスワード)
+DB_HOST=(Host Name)
+DB_PORT=(Port Name)
+DB_DATABASE=(Database Name)
+DB_USERNAME=(User Name)
+DB_PASSWORD=(Password)
 
-# 画面から短縮URL機能を有効にする場合
+# To enable the shortened URL function from the screen
 URL_SHORTER_ENABLED_WEB_MAKE=true
 ```
 
-- 画面の言語とタイムゾーンを変更する場合、"config/app.php"を開きます。
-
-```
-    'timezone' => 'Asia/Tokyo',
-
-    'locale' => 'ja',
-```
-
-
-- 以下のコマンドを入力します。
+- Enter the following command.
 
 ```
 php artisan vendor:publish --provider="Hirossyi73\UrlShorter\UrlShorterServiceProvider"
 php artisan migrate
 ```
 
-- サーバーを起動します。
+- Start the server.
 
 ```
 php artisan serve
 ```
 
-## 試す
+## Try
 
-- 以下のURLにアクセスすることで、短縮URL生成画面に遷移します。  
+- By accessing the following URL, it will transition to the shortened URL generation screen.  
 http(s)://(URL)/make
 
-- URLを入力し、「変換」ボタンをクリックします。
+- Enter the URL and click the "Convert" button.
 
-![URL生成](screen1.gif)
+![Generate URL](docs/img/screen1.gif)
 
-- 生成URLをブラウザに貼り付けることで、元のURLにリダイレクトします。
+- You can redirect to the original URL by pasting the generated URL in the browser.
 
-## パスワード認証
-短縮URL生成画面に、パスワード認証を設定することができます。
+## Password Authentication
+Password authentication can be set on the shortened URL generation screen.
 
-- ".env"ファイルを開き、以下の情報を入力します。
+- Open the ".env" file and enter the following information.
 
 ```
 URL_SHORTER_AUTH_USE=true
-URL_SHORTER_AUTH_PASSWORD=(パスワード)
+URL_SHORTER_AUTH_PASSWORD=(Password)
 ```
 
-- これで、短縮URL生成画面にアクセスすると、パスワード認証を求められるようになります。
+- Now, when you access the shortened URL generation screen, you will be prompted for password authentication.
 
-![URL生成](screen3.gif)
+![Generate URL](docs/img/screen3.gif)
 
-## プレビュー機能
-- 短縮URLをブラウザで入力した際に、直接リダイレクトせず、プレビュー画面を表示することができます。 
+## Preview
+- When you enter the shortened URL in the browser, you can display the preview screen without directly redirecting. 
 
-- ".env"ファイルを開き、以下の情報を入力します。
+- Open the ".env" file and enter the following information.
 
 ```
 URL_SHORTER_USE_PREVIEW=true
 ```
 
-- これで、短縮URLをブラウザに入力すると、プレビューが求められます。
+- If you enter the shortened URL in your browser, you will be prompted for a preview.
 
-![URL生成](screen2.gif)
+![Generate URL](docs/img/screen2.gif)
 
 ## API
-APIを使用することができます。
+You can use the API.
 
-- ".env"ファイルを開き、以下の情報を入力します。
+- Open the ".env" file and enter the following information.
 
 ```
-URL_SHORTER_ENABLED_API=true #短縮URLから元のURL復元を利用する場合
-URL_SHORTER_ENABLED_API_MAKE=true #短縮URL生成を利用する場合
+URL_SHORTER_ENABLED_API=true #When using original URL recovery from shortened URL
+URL_SHORTER_ENABLED_API_MAKE=true #When using shortened URL generation
 ```
 
-- これで、短縮URLのAPIを利用できます。
+- You can now use the shortened URL API.
 
 
-### 短縮URL生成
+### Generate short URL
 
 ```
 http(s)://(URL)/api/make POST
 Content-Type : application/json
 
-POST値：
+POST VALUE:
 {
-  "url": "(短縮したいURL)"
+  "url": "(URL to shorten)"
 }
 
-戻り値：
+RETURN VALUE:
 {
-  "url": "(短縮したいURL)",
-  "key": "(キー)",
-  "updated_at": "(更新日時)",
-  "created_at": "(作成日時)",
-  "generate_url": "(短縮URL)"
+  "url": "(URL to shorten)",
+  "key": "(Key)",
+  "updated_at": "(Updated Datetime)",
+  "created_at": "(Created Datetime)",
+  "generate_url": "(Generate URL)"
 }
 ```
 
-### 短縮URLから復元
+### Restore from shortened URL
 
 ```
 http(s)://(URL)/api/g POST
 Content-Type : application/json
 
-POST値：
+POST VALUE:
 {
-  "generate_url": "(短縮後のURL)"
+  "generate_url": "(Shortened URL)"
 }
 
-戻り値：
+RETURN VALUE:
 {
-  "url": "(元のURL)",
-  "key": "(キー)",
-  "updated_at": "(更新日時)",
-  "created_at": "(作成日時)",
-  "generate_url": "(短縮後のURL)"
+  "url": "(URL to shorten)",
+  "key": "(Key)",
+  "updated_at": "(Updated Datetime)",
+  "created_at": "(Created Datetime)",
+  "generate_url": "(Generate URL)"
 }
 ```
+
+
+## Setting Value
+Add to ".env" file.
+
+#### URL_SHORTER_USE_PREVIEW
+When using the preview function, set true(Default : false)
+
+#### URL_SHORTER_AUTH_USE
+When password authentication is performed with the shortened URL generation function, set true(Default : false)
+
+#### URL_SHORTER_AUTH_PASSWORD
+Password string for password authentication
+
+#### URL_SHORTER_GENERATE_WORDS
+Character string used when generating a shortened URL
+
+#### URL_SHORTER_GENERATE_LENGTH
+Number of characters when generating a shortened URL
+
+#### URL_SHORTER_GENERATE_CHECK_ALREADY_EXISTS
+When true, check existence after creating short keys(Default : true)
+
+#### URL_SHORTER_ENABLED_WEB
+If true, use redirect page when accessing shortened URL(Default : true)
+
+#### URL_SHORTER_ENABLED_WEB_MAKE
+When true, use shortened URL generation page(Default : false)
+
+#### URL_SHORTER_ENABLED_API
+When true, use API to get original URL from shortened URL(Default : false)
+
+#### URL_SHORTER_ENABLED_API_MAKE
+When true, use shortened URL generation API(Default : false)
+
+

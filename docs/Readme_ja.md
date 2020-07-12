@@ -1,6 +1,8 @@
 # Url Shorter
 短縮URLを生成・復元するライブラリです。  
 
+[English ReadMe](../Readme.md)
+
 ## 要求
 - PHP >= 7.0.0
 - Laravel >= 5.5.0
@@ -164,34 +166,34 @@ POST値：
 ## 設定値
 ".env"ファイルに追記を行ってください。
 
-- URL_SHORTER_USE_PREVIEW
+#### URL_SHORTER_USE_PREVIEW
 プレビュー機能を使用する場合true(既定値：false)
 
-- URL_SHORTER_AUTH_USE
+#### URL_SHORTER_AUTH_USE
 短縮URL生成機能で、パスワード認証を行う場合true(既定値：false)
 
-- URL_SHORTER_AUTH_PASSWORD
+#### URL_SHORTER_AUTH_PASSWORD
 パスワード認証のパスワード文字列
 
-- URL_SHORTER_GENERATE_WORDS
+#### URL_SHORTER_GENERATE_WORDS
 短縮URL生成時の使用文字列
 
-- URL_SHORTER_GENERATE_LENGTH
+#### URL_SHORTER_GENERATE_LENGTH
 短縮URL生成時の文字数
 
-- URL_SHORTER_GENERATE_CHECK_ALREADY_EXISTS
+#### URL_SHORTER_GENERATE_CHECK_ALREADY_EXISTS
 trueのとき、短縮キー作成後に存在チェックをする(既定値：true)
 
-- URL_SHORTER_ENABLED_WEB
+#### URL_SHORTER_ENABLED_WEB
 trueのとき、短縮URLにアクセスしたときのリダイレクトページを使用する(既定値：true)
 
-- URL_SHORTER_ENABLED_WEB_MAKE
+#### URL_SHORTER_ENABLED_WEB_MAKE
 trueのとき、短縮URL生成ページを使用する(既定値：false)
 
-- URL_SHORTER_ENABLED_API
+#### URL_SHORTER_ENABLED_API
 trueのとき、短縮URLから元のURLを取得するAPIを使用する(既定値：false)
 
-- URL_SHORTER_ENABLED_API_MAKE
+#### URL_SHORTER_ENABLED_API_MAKE
 trueのとき、短縮URL生成APIを使用する(既定値：false)
 
 
