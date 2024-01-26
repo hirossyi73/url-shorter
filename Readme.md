@@ -1,13 +1,16 @@
 # Url Shorter
+
 This is a library that generates and restores shortened URLs.
 
-[日本語版ReadMe](docs/Readme_ja.md)
+[日本語版 ReadMe](docs/Readme_ja.md)
 
 ## Requirement
-- PHP >= 7.0.0
-- Laravel >= 5.5.0
+
+- PHP >= 8.0.0
+- Laravel >= 9.0.0
 
 ## Functions
+
 - Generate shortened URL
 - Restore shortened URL
 - Generate short URL from screen(Switchable ON/OFF as an option)
@@ -18,7 +21,6 @@ This is a library that generates and restores shortened URLs.
 - Screen/API endpoint change function
 - Change the number of random characters in shortened URL
 - Change the character type used in the shortened URL
-
 
 ## Quick Start
 
@@ -66,7 +68,7 @@ php artisan serve
 ## Try
 
 - By accessing the following URL, it will transition to the shortened URL generation screen.  
-http(s)://(URL)/make
+  http(s)://(URL)/make
 
 - Enter the URL and click the "Convert" button.
 
@@ -75,6 +77,7 @@ http(s)://(URL)/make
 - You can redirect to the original URL by pasting the generated URL in the browser.
 
 ## Password Authentication
+
 Password authentication can be set on the shortened URL generation screen.
 
 - Open the ".env" file and enter the following information.
@@ -89,7 +92,8 @@ URL_SHORTER_AUTH_PASSWORD=(Password)
 ![Generate URL](docs/img/screen3.gif)
 
 ## Preview
-- When you enter the shortened URL in the browser, you can display the preview screen without directly redirecting. 
+
+- When you enter the shortened URL in the browser, you can display the preview screen without directly redirecting.
 
 - Open the ".env" file and enter the following information.
 
@@ -102,6 +106,7 @@ URL_SHORTER_USE_PREVIEW=true
 ![Generate URL](docs/img/screen2.gif)
 
 ## API
+
 You can use the API.
 
 - Open the ".env" file and enter the following information.
@@ -112,7 +117,6 @@ URL_SHORTER_ENABLED_API_MAKE=true #When using shortened URL generation
 ```
 
 - You can now use the shortened URL API.
-
 
 ### Generate short URL
 
@@ -156,38 +160,46 @@ RETURN VALUE:
 }
 ```
 
-
 ## Setting Value
+
 Add to ".env" file.
 
 #### URL_SHORTER_USE_PREVIEW
+
 When using the preview function, set true(Default : false)
 
 #### URL_SHORTER_AUTH_USE
+
 When password authentication is performed with the shortened URL generation function, set true(Default : false)
 
 #### URL_SHORTER_AUTH_PASSWORD
+
 Password string for password authentication
 
 #### URL_SHORTER_GENERATE_WORDS
+
 Character string used when generating a shortened URL
 
 #### URL_SHORTER_GENERATE_LENGTH
+
 Number of characters when generating a shortened URL
 
 #### URL_SHORTER_GENERATE_CHECK_ALREADY_EXISTS
+
 When true, check existence after creating short keys(Default : true)
 
 #### URL_SHORTER_ENABLED_WEB
+
 If true, use redirect page when accessing shortened URL(Default : true)
 
 #### URL_SHORTER_ENABLED_WEB_MAKE
+
 When true, use shortened URL generation page(Default : false)
 
 #### URL_SHORTER_ENABLED_API
+
 When true, use API to get original URL from shortened URL(Default : false)
 
 #### URL_SHORTER_ENABLED_API_MAKE
+
 When true, use shortened URL generation API(Default : false)
-
-
