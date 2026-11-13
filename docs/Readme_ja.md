@@ -1,5 +1,17 @@
 # Url Shorter
 
+> [!WARNING]
+> **このリポジトリは更新を終了し、アーカイブしました。** 1.x には、セキュリティの修正を含め、今後修正を入れません。次の既知の問題があります。
+>
+> - `URL_SHORTER_AUTH_PASSWORD` を設定していないと、パスワードは `password` になります。
+> - プレビュー（`URL_SHORTER_USE_PREVIEW`）は、登録された URL をサーバーから取得します。内部ネットワークのアドレスも取得します（SSRF）。
+> - 有効・無効を切り替える設定で、`no`・`off` などを true として読みます。
+> - パスワード認証の失敗回数に上限がありません。また、パスワードを変えても、ログイン済みのセッションは有効なままです。
+> - 短縮 URL のキーを、推測できる `rand()` で作ります。
+> - http / https 以外のスキームの URL も、一部は登録できます。
+>
+> 使い続ける場合は、`URL_SHORTER_AUTH_PASSWORD` に長いランダムな値を設定し、`URL_SHORTER_USE_PREVIEW` は `false` のままにしてください。有効・無効を切り替える設定は `true` か `false` で書き、生成画面・生成 API（`URL_SHORTER_ENABLED_WEB_MAKE`・`URL_SHORTER_ENABLED_API_MAKE`）は、必要なときだけパスワード認証と一緒に有効にしてください。
+
 短縮 URL を生成・復元するライブラリです。
 
 [English ReadMe](../Readme.md)

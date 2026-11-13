@@ -1,5 +1,17 @@
 # Url Shorter
 
+> [!WARNING]
+> **This repository is no longer maintained and has been archived.** Version 1.x will not receive any fixes, including security fixes. It has the following known issues:
+>
+> - If `URL_SHORTER_AUTH_PASSWORD` is not set, the password is `password`.
+> - The preview (`URL_SHORTER_USE_PREVIEW`) makes the server fetch the registered URL, including addresses in internal networks (SSRF).
+> - In the settings that turn something on or off, values such as `no` and `off` are read as true.
+> - Password authentication has no limit on failed attempts, and logged-in sessions stay valid after the password is changed.
+> - Keys of shortened URLs are generated with `rand()`, which is predictable.
+> - Some URLs with schemes other than http / https can be registered.
+>
+> If you keep using it, set `URL_SHORTER_AUTH_PASSWORD` to a long random value and keep `URL_SHORTER_USE_PREVIEW` set to `false`. Write the settings that turn something on or off as `true` or `false`, and enable the generation page and API (`URL_SHORTER_ENABLED_WEB_MAKE`, `URL_SHORTER_ENABLED_API_MAKE`) only when you need them, together with password authentication.
+
 This is a library that generates and restores shortened URLs.
 
 [日本語版 ReadMe](docs/Readme_ja.md)
